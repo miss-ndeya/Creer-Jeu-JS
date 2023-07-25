@@ -8,7 +8,7 @@ function sauter() {
     perso.classList.add('animation');
   }
   setTimeout(function () {
-    personalbar.classList.remove('animation');
+    perso.classList.remove('animation');
   },500);
 }
 // Verifier si le personnage touche l'obstacle
