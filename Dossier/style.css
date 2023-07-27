@@ -63,8 +63,10 @@ section{
     top: 130px;
     left: 280px;
     border-radius: 50%;
-    animation: anim-obstacle 2.5s infinite;
+    animation:  anim-obstacle 2.5s infinite;
+    
 }
+
 /* animation obstacle */
 @keyframes anim-obstacle {
     0%{
@@ -91,3 +93,7 @@ a,button {
     text-decoration: none;
     color: #000;
 }
+/* p{
+    padding: 20px;
+    color: #b2daf7;
+} */

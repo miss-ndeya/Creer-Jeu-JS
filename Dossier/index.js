@@ -1,27 +1,49 @@
+// selectionner mes elements html
 const perso = document.querySelector(".perso");
 const obstacle = document.querySelector(".obstacle");
 const button = document.querySelector("button");
+const scoreJeu = document.querySelector("#scoreJeu");
+
+// declaration du variable pour le score
+let score = 0;
+
+// fonction pour declencher le saut du personnage
 button.addEventListener("click", sauter);
+
+// foncton pour faire sauter le personnage
 function sauter() {
-  // foncton pour faire sauter le personnage
+  // verifier si la class animation
   if (perso.classList != "animation") {
-    perso.classList.add('animation');
+    perso.classList.add("animation");
   }
+
   setTimeout(function () {
-    perso.classList.remove('animation');
-  },500);
+    perso.classList.remove("animation");
+  }, 500);
 }
+
 // Verifier si le personnage touche l'obstacle
-const verification = setInterval(function(){
-  var persoTop = parseInt(
+const verification = setInterval(function () {
+  const persoTop = parseInt(
     window.getComputedStyle(perso).getPropertyValue("top")
   );
-  var obstacleLeft = parseInt (window.getComputedStyle(obstacle).getPropertyValue("left")
+
+  const obstacleLeft = parseInt(
+    window.getComputedStyle(obstacle).getPropertyValue("left")
   );
 
-  if (obstacleLeft<20 && obstacleLeft>0 && persoTop>= 140) {
+  // condition pour verifier si l'obstacle est toucher
+  if (obstacleLeft < 20 && obstacleLeft > 0 && persoTop >= 130) {
     obstacle.style.animation = "none";
-      alert("Vous avez perdu!");
+    alert("Vous avez perdu ");
+    scoreJeu.textContent = `Votre score est de ${score}, cliquer sur jouer pour recommencer`;
+
+    // renitialiser l'score
+    score = 0;
+  } else {
+    // les points obtenu
+    const pointObtenu = Math.floor(Math.random() * 5) + 1;
+    score += pointObtenu;
   }
-},1);
+}, 1000);
 
