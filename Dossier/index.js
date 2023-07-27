@@ -2,7 +2,7 @@
 const perso = document.querySelector(".perso");
 const obstacle = document.querySelector(".obstacle");
 const button = document.querySelector("button");
-const scoreJeu = document.querySelector("#scoreJeu");
+const scoreJeu = document.getElementById("scoreJeu");
 
 // declaration du variable pour le score
 let score = 0;
